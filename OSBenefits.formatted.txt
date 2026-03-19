@@ -1,0 +1,80 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+tff(operating_system_type,type,
+    operating_system: $tType ).
+
+tff(origin_type,type,
+    origin: $tType ).
+
+tff(computer_type,type,
+    computer: $tType ).
+
+tff(linux_decl,type,
+    linux: operating_system ).
+
+tff(windows_decl,type,
+    windows: operating_system ).
+
+tff(osx_decl,type,
+    osx: operating_system ).
+
+tff(unix_decl,type,
+    unix: origin ).
+
+tff(dos_decl,type,
+    dos: origin ).
+
+tff(my_computer_decl,type,
+    my_computer: computer ).
+
+tff(origin_of_decl,type,
+    origin_of: operating_system > origin ).
+
+tff(runs_decl,type,
+    runs: ( computer * operating_system ) > $o ).
+
+tff(benefits_from,type,
+    benefits_from: ( computer * origin ) > $o ).
+
+tff(only_operating_systems,axiom,
+    ! [O: operating_system] :
+      ( ( O = linux )
+      | ( O = windows )
+      | ( O = osx ) ) ).
+
+tff(different_operating_systems,axiom,
+    ( ( linux != windows )
+    & ( linux != osx )
+    & ( windows != osx ) ) ).
+
+tff(operating_systems_origins,axiom,
+    ! [O: operating_system] :
+      ( ( origin_of(O) = unix )
+      | ( origin_of(O) = dos ) ) ).
+
+tff(different_operating_systems_origins,axiom,
+    unix != dos ).
+
+tff(operating_systems_origins_001,axiom,
+    ( ( origin_of(linux) = unix )
+    & ( origin_of(osx) = unix )
+    & ( origin_of(windows) = dos ) ) ).
+
+tff(computers_run_operating_systems,axiom,
+    ! [C: computer] :
+    ? [O: operating_system] : runs(C,O) ).
+
+tff(benefit,axiom,
+    ! [C: computer,O: operating_system] :
+      ( runs(C,O)
+     => benefits_from(C,origin_of(O)) ) ).
+
+tff(my_computer,axiom,
+    runs(my_computer,osx) ).
+
+tff(my_computer_benefits,conjecture,
+    benefits_from(my_computer,unix) ).
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_1StmDx - TPTP4X---0.0 says Unknown - CPU = 0.00 WC = 0.01 
+% OUTPUT: SOT_1StmDx - TPTP4X---0.0 says None - CPU = 0 WC = 0 

@@ -1,0 +1,111 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+Running first-order model finding
+Running: /home/tptp/Systems/Vampire-SAT---5.0/vampire --mode casc --intent sat -m 16384 --cores 7 -t 60 /tmp/LEwUU5WuHE/SOT_P8nByf
+% (4023034)Running in auto input_syntax mode. Trying TPTP
+% (4023034)Will run a generic schedule for satisfiability detection.
+% (4023039)fmb+10_1_sas=cadical:bce=on:rp=on:random_seed=2665181559_599 on SOT_P8nByf for (599ds/0Mi)
+% (4023043)ott+31_1_sil=16000:lcm=predicate:bce=on:newcnf=on:random_seed=73509333:i=116_1 on SOT_P8nByf for (1ds/116Mi)
+% (4023040)% WARNING: option uhcvi not known.
+% Detected minimum model sizes of [3,1]
+% Detected maximum model sizes of [3,max]
+% TRYING [3,1]
+% TRYING [3,2]
+% Finite Model Found!
+% SZS status Satisfiable for SOT_P8nByf
+% (4023039)First to succeed.
+% (4023039)Solution written to "/tmp/tmp.4WQRWlfmlS/vampire-proof-4023034"
+% (4023040)dis+11_61:31_drc=ordering:lsd=5:bsr=unit_only:rp=on:newcnf=on:random_seed=3628974970:i=135531:add=off:rawr=on_599 on SOT_P8nByf for (599ds/135531Mi)
+% (4023044)ott+1_1_to=lpo:sil=16000:sp=reverse_arity:erd=off:random_seed=223038881:i=131_1 on SOT_P8nByf for (1ds/131Mi)
+% (4023041)dis+10_161_sil=256000:plsq=on:plsqr=61199697,1048576:gs=on:alpa=true:sac=on:slsq=on:cn=on:random_seed=2968839586:i=88024:add=on:rawr=on_441 on SOT_P8nByf for (441ds/88024Mi)
+% (4023045)ott-3_16_to=lpo:sil=16000:sp=arity:fd=off:rp=on:random_seed=3994895254:i=159:nicw=on:bs=unit_only:fsr=off:amm=off_1 on SOT_P8nByf for (1ds/159Mi)
+% SZS output start FiniteModel for SOT_P8nByf
+tff('declare_$i1',type,'fmb_$i_1':$i).
+tff('finite_domain_$i',axiom,
+      ! [X:$i] : (
+         X = 'fmb_$i_1'
+      ) ).
+
+tff(declare_operating_system,type,operating_system:$tType).
+tff(declare_operating_system1,type,fmb_operating_system_1:operating_system).
+tff(declare_operating_system2,type,fmb_operating_system_2:operating_system).
+tff(declare_operating_system3,type,fmb_operating_system_3:operating_system).
+tff(finite_domain_operating_system,axiom,
+      ! [X:operating_system] : (
+         X = fmb_operating_system_1 | X = fmb_operating_system_2 | X = fmb_operating_system_3
+      ) ).
+
+tff(distinct_domain_operating_system,axiom,
+         fmb_operating_system_1 != fmb_operating_system_2 & fmb_operating_system_1 != fmb_operating_system_3 & fmb_operating_system_2 != fmb_operating_system_3
+).
+
+tff(declare_origin,type,origin:$tType).
+tff(declare_origin1,type,fmb_origin_1:origin).
+tff(declare_origin2,type,fmb_origin_2:origin).
+tff(finite_domain_origin,axiom,
+      ! [X:origin] : (
+         X = fmb_origin_1 | X = fmb_origin_2
+      ) ).
+
+tff(distinct_domain_origin,axiom,
+         fmb_origin_1 != fmb_origin_2
+).
+
+tff(declare_computer,type,computer:$tType).
+tff(declare_computer1,type,fmb_computer_1:computer).
+tff(finite_domain_computer,axiom,
+      ! [X:computer] : (
+         X = fmb_computer_1
+      ) ).
+
+tff(declare_linux,type,linux:operating_system).
+tff(linux_definition,axiom,linux = fmb_operating_system_1).
+tff(declare_windows,type,windows:operating_system).
+tff(windows_definition,axiom,windows = fmb_operating_system_2).
+tff(declare_osx,type,osx:operating_system).
+tff(osx_definition,axiom,osx = fmb_operating_system_3).
+tff(declare_unix,type,unix:origin).
+tff(unix_definition,axiom,unix = fmb_origin_1).
+tff(declare_dos,type,dos:origin).
+tff(dos_definition,axiom,dos = fmb_origin_2).
+tff(declare_my_computer,type,my_computer:computer).
+tff(my_computer_definition,axiom,my_computer = fmb_computer_1).
+tff(declare_origin_of,type,origin_of: (operating_system) > origin).
+tff(function_origin_of,axiom,
+           origin_of(fmb_operating_system_1) = fmb_origin_1
+         & origin_of(fmb_operating_system_2) = fmb_origin_2
+         & origin_of(fmb_operating_system_3) = fmb_origin_1
+
+).
+
+tff(declare_runs,type,runs: (computer * operating_system) > $o).
+tff(predicate_runs,axiom,
+           runs(fmb_computer_1,fmb_operating_system_1)
+         & runs(fmb_computer_1,fmb_operating_system_2)
+         & runs(fmb_computer_1,fmb_operating_system_3)
+
+).
+
+tff(declare_benefits_from,type,benefits_from: (computer * origin) > $o).
+tff(predicate_benefits_from,axiom,
+           benefits_from(fmb_computer_1,fmb_origin_1)
+         & benefits_from(fmb_computer_1,fmb_origin_2)
+
+).
+
+% SZS output end FiniteModel for SOT_P8nByf
+% (4023039)------------------------------
+% (4023039)Version: Vampire 5.0.1 (commit 44a2ec420 on 2026-02-23 17:05:19 +0100)
+% (4023039)Linked with Z3 4.14.0.0 3c47fd96cf5645d0c42b2c819d9e9a84380aa721 z3-4.8.4-9178-g3c47fd96c
+% (4023039)CaDiCaL version: 2.1.3-f13d744
+% (4023039)Termination reason: Satisfiable
+% (4023039)Time elapsed: 0.002 s
+% (4023039)Peak memory usage: 12 MB
+% (4023039)------------------------------
+% (4023039)------------------------------
+% (4023034)Success in time 0.061 s
+% Vampire exiting
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_P8nByf - Vampire-SAT---5.0 says Satisfiable - CPU = 0.00 WC = 0.09 
+% OUTPUT: SOT_P8nByf - Vampire-SAT---5.0 says FiniteModel - CPU = 0.00 WC = 0.09 

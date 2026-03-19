@@ -1,0 +1,19 @@
+% Checking upload ... % Checker ran ... % No errors ...
+% START OF SYSTEM OUTPUT
+Found a type operating_system
+Found a type origin
+Found a type computer
+Found the type of benefits_from
+Found the type of runs
+Found the type of dos
+Found the type of linux
+Found the type of my_computer
+Found the type of origin_of
+Found the type of osx
+Found the type of unix
+Found the type of windows
+/tmp/0AixOPH9hI/SOT_CD0JoS: 16 symbols checked, 0 errors
+
+% END OF SYSTEM OUTPUT
+% RESULT: SOT_CD0JoS - CheckTyping---0.0 says Success - CPU = 0.00 WC = 0.01 
+% OUTPUT: SOT_CD0JoS - CheckTyping---0.0 says Assurance - CPU = 0.00 WC = 0.01 
