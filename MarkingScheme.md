@@ -6,7 +6,7 @@
      <TD WIDTH=10%> &nbsp;
      <TD WIDTH=20%> &nbsp;
      <TD WIDTH=30%> Mark:
-     <TD WIDTH=10%> 3/4 Mistakes, ommisions in axioms, png not right
+     <TD WIDTH=10%> 3.5/4 Mistakes, ommisions in axioms, png not right
 
 <TR> <TD COLSPAN=5> &nbsp;
 <TR> <TD WIDTH=30%> Axioms
